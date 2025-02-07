@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>sba.sms</groupId>
-  <artifactId>sba-core-java-hibernate-junit</artifactId>
+  <artifactId>TarlanFaal-SBA-core-java-hibernate-junit</artifactId>
   <version>1.0</version>
 
   <name>sba-core-java-hibernate-junit</name>
