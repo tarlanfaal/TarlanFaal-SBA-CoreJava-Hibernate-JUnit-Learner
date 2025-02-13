@@ -50,7 +50,7 @@ public class App {
                 String password = input.next();
                 if (studentService.validateStudent(email, password)) {
                     printStudentCourses(email);
-                    System.out.printf("select # from menu: %n1.Register %s to class: %n2.Logout%n", studentService.getStudentByEmail(email).getName());
+                    System.out.printf("select # from menu: %n1.Register %s to class: %n2.Logout%n", studentService.getStudentByEmail(email).getStudentName());
                     userInput = input.nextInt();
                     if (userInput == 2) {
                         System.exit(0);
@@ -60,13 +60,13 @@ public class App {
                         System.out.printf("%-2s | %-20s | %s%n", "ID", "Course", "Instructor");
                         if (courseList.isEmpty()) System.out.printf("No courses to view%n");
                         for (Course course : courseList) {
-                            System.out.printf("%-2d | %-20s | %s%n", course.getId(), course.getName(), course.getInstructor());
+                            System.out.printf("%-2d | %-20s | %s%n", course.getCourseId(), course.getCourseName(), course.getInstructorName());
                         }
                         System.out.print("select course #: ");
                         int courseId = input.nextInt();
                         if (courseId > 0 && courseId <= courseList.size()) {
                             studentService.registerStudentToCourse(email, (courseId));
-                            System.out.printf("successfully register %s to %s%n", studentService.getStudentByEmail(email).getName(), courseService.getCourseById(courseId).getName());
+                            System.out.printf("successfully register %s to %s%n", studentService.getStudentByEmail(email).getStudentName(), courseService.getCourseById(courseId).getCourseName());
                             printStudentCourses(email);
                         } else {
                             System.out.printf("course id not found!%n");
@@ -87,7 +87,7 @@ public class App {
         List<Course> userCourses = studentService.getStudentCourses(email);
         if (userCourses.isEmpty()) System.out.printf("No courses to view%n");
         for (Course course : userCourses) {
-            System.out.printf("%-2d | %-20s | %s%n", course.getId(), course.getName(), course.getInstructor());
+            System.out.printf("%-2d | %-20s | %s%n", course.getCourseId(), course.getCourseName(), course.getInstructorName());
         }
     }
 }

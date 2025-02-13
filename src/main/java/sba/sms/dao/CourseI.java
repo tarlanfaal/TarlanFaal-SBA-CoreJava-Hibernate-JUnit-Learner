@@ -9,8 +9,10 @@ import java.util.List;
  * is implemented by other classes to provide services for a course.
  */
 public interface CourseI {
-    void createCourse(Course course);
-    Course getCourseById(int courseId);
-    List<Course> getAllCourses();
 
+    void createCourse(Course course);
+
+    Course getCourseById(int courseId);
+
+    List<Course> getAllCourses();
 }
